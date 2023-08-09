@@ -16,7 +16,7 @@ terraform {
 }
 
 data "digitalocean_ssh_key" "terraform" {
-  name = "private-key"
+  name = var.pvt_key_name
 }
 
 provider "digitalocean" {

@@ -10,7 +10,7 @@ variable "pvt_key_name" {
 
 variable "node_image" {
   description = "OS image for nodes. Check available images here: https://slugs.do-api.dev/"
-  default = "centos-7-x64"
+  default = "debian-12-x64"
   type = string
 }
 

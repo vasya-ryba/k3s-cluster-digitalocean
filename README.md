@@ -1,7 +1,7 @@
 # k3s-cluster-digitalocean
 Terraform  module which creates small and cheap K3s cluster in DigitalOcean
 
-##Usage
+## Usage
 ````hcl
 module "k3s-cluster" {
   source = "/path/to/k3s-cluster-digitalocean"
@@ -33,7 +33,7 @@ server-2   Ready    control-plane,etcd,master   49s     v1.27.4+k3s1
 
 [This example](https://github.com/vasya-ryba/k3s-cluster-digitalocean/blob/main/examples/single-server/main.tf) shows usage together with kubernetes provider.
 
-##Purpose
+## Purpose
 For small pet projects, for education, for development. K3s clusters are _relatively_ cheap: [3 servers](https://github.com/vasya-ryba/k3s-cluster-digitalocean/tree/main/examples/many-servers) or [1 server with 3 agents](https://github.com/vasya-ryba/k3s-cluster-digitalocean/tree/main/examples/single-server-many-agents) setup costs **$18**/month.  
 
 

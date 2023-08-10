@@ -27,7 +27,7 @@ resource "digitalocean_firewall" "k3s" {
   inbound_rule {
     protocol = "tcp"
     port_range = "6443"
-    source_tags = ["k3s-agents"]
+    source_tags = ["k3s-servers", "k3s-agents"]
   }
 
   inbound_rule {

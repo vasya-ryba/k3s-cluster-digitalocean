@@ -1,8 +1,3 @@
-variable "do_token" {
-  description = "DigitalOcean token"
-  type = string
-}
-
 variable "pvt_key" {
   description = "Path to SSH private key"
   type = string

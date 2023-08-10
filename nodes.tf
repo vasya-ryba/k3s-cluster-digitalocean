@@ -2,6 +2,10 @@ locals {
   installc = nonsensitive("K3S_TOKEN=${random_password.k3s_cluster_secret.result} sh /tmp/k3s-installer")
 }
 
+data "digitalocean_ssh_key" "terraform" {
+  name = var.pvt_key_name
+}
+
 # Fetch k3s installation script
 data "http" "k3s_installer" {
   url = "https://get.k3s.io/"
@@ -103,6 +107,6 @@ resource "digitalocean_droplet" "agent" {
 }
 
 data "external" "kubeconfig" {
-  program = sensitive(["/bin/sh", "certs.sh", var.pvt_key, digitalocean_droplet.server[0].ipv4_address, path.root])
+  program = sensitive(["/bin/sh", "${path.module}/certs.sh", var.pvt_key, digitalocean_droplet.server[0].ipv4_address, path.root])
   depends_on = [digitalocean_droplet.server[0]]
 }

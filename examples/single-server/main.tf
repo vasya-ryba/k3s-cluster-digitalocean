@@ -1,8 +1,8 @@
-## Create single node K3s cluster with SQLite datastore
+## Create single server K3s cluster with SQLite datastore
 module "k3s-cluster" {
+  source = "../.."
   pvt_key = var.pvt_key
   pvt_key_name = var.pvt_key_name
-  source = "../.."
   server_node_count = 1
   server_node_size = "s-1vcpu-2gb"
   agent_node_count = 0

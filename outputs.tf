@@ -3,7 +3,7 @@ locals {
 apiVersion: v1
 clusters:
 - cluster:
-    server: https://${digitalocean_droplet.controlplane[0].ipv4_address}:6443
+    server: https://${digitalocean_droplet.server[0].ipv4_address}:6443
     certificate-authority-data: ${data.external.kubeconfig.result.server_cert}
   name: default
 contexts:

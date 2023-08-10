@@ -1,7 +1,7 @@
 resource "digitalocean_firewall" "k3s" {
   name = "cloud-firewall"
 
-  droplet_ids = digitalocean_droplet.controlplane[*].id
+  tags = ["k3s-servers", "k3s-agents"]
 
   # Allow SSH login through jumpbox
   inbound_rule {
@@ -21,31 +21,31 @@ resource "digitalocean_firewall" "k3s" {
   inbound_rule {
     protocol = "tcp"
     port_range = "2379-2380"
-    source_droplet_ids = digitalocean_droplet.controlplane[*].id
+    source_tags = ["k3s-servers"]
   }
 
   inbound_rule {
     protocol = "tcp"
     port_range = "6443"
-    source_droplet_ids = digitalocean_droplet.controlplane[*].id
+    source_tags = ["k3s-agents"]
   }
 
   inbound_rule {
     protocol = "udp"
     port_range = "8472"
-    source_droplet_ids = digitalocean_droplet.controlplane[*].id
+    source_tags = ["k3s-servers", "k3s-agents"]
   }
 
   inbound_rule {
     protocol = "tcp"
     port_range = "10250"
-    source_droplet_ids = digitalocean_droplet.controlplane[*].id
+    source_tags = ["k3s-servers", "k3s-agents"]
   }
 
   inbound_rule {
     protocol = "udp"
     port_range = "51820-51821"
-    source_droplet_ids = digitalocean_droplet.controlplane[*].id
+    source_tags = ["k3s-servers", "k3s-agents"]
   }
 
   // Allow all outbound traffic

@@ -1,2 +1,4 @@
 # k3s-cluster-digitalocean
-Provision small k3s cluster in DigitalOcean
+Terraform  module which creates small and cheap K3s cluster in DigitalOcean
+
+https://k3s.io/
